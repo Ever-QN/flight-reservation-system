@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Assignment2.Models
 {
-	internal class appManager
+	internal class AppManager
 	{
 	}
 }
