@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Components.WebView.Maui;
-using Assignment2.Data;
+using Assignment2;
 
 namespace Assignment2;
 
@@ -19,8 +19,6 @@ public static class MauiProgram
 		#if DEBUG
 		builder.Services.AddBlazorWebViewDeveloperTools();
 #endif
-		
-		builder.Services.AddSingleton<WeatherForecastService>();
 
 		return builder.Build();
 	}
