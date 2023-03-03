@@ -1,10 +1,67 @@
 ﻿@page "/reservations"
 
-<h3>Reservations</h3>
+<div class="d-flex flex-row justify-content-evenly">
 
-<h3>Reserve</h3>
+	<div class="d-flex flex-column">
+		<h3>Reservations</h3>
+	</div>
 
-<h3>Search</h3>
+	<div class="d-flex flex-column align-items-center">
+		<h3>Reserve</h3>
+		<form class="d-flex flex-column align-items-end">
+			<div class="form-group d-flex flex-row align-items-center">
+				<label>Code: </label>
+				<input type="text" class="form-control" id="code">
+			</div>
+			<div class="form-group d-flex flex-row align-items-center">
+				<label>Flight: </label>
+				<input type="text" class="form-control" id="flight">
+			</div>
+			<div class="form-group d-flex flex-row align-items-center">
+				<label>Airline: </label>
+				<input type="text" class="form-control" id="airline">
+			</div>
+			<div class="form-group d-flex flex-row align-items-center">
+				<label>Cost: </label>
+				<input type="text" class="form-control" id="cost">
+			</div>
+			<div class="form-group d-flex flex-row align-items-center">
+				<label>Name: </label>
+				<input type="text" class="form-control" id="name">
+			</div>
+			<div class="form-group d-flex flex-row align-items-center">
+				<label>Citizenship: </label>
+				<input type="text" class="form-control" id="citizenship">
+			</div>
+		</form>
+		<div class="align-content-center">
+			<button>Reserve</button>
+		</div>
+	</div>
+</div>
+
+
+<div class="d-flex flex-column align-items-center">
+	<h3>Search</h3>
+	<form class="d-flex flex-column align-items-end">
+		<div class="form-group d-flex flex-row align-items-center">
+			<label>Code: </label>
+			<input type="text" class="form-control" id="code">
+		</div>
+		<div class="form-group d-flex flex-row align-items-center">
+			<label>Airline: </label>
+			<input type="text" class="form-control" id="airline">
+		</div>
+		<div class="form-group d-flex flex-row align-items-center">
+			<label>Name: </label>
+			<input type="text" class="form-control" id="name">
+		</div>
+	</form>
+	<div>
+		<button>Find reservations</button>
+	</div>
+</div>
+
 
 @code {
 
