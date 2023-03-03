@@ -8,5 +8,13 @@ namespace Assignment2.Models
 {
 	internal class FlightManager
 	{
+		public FlightManager() 
+		{
+		}
+
+		private void loadFlightsFile()
+		{
+
+		}
 	}
 }

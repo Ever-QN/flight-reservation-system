@@ -8,5 +8,9 @@ namespace Assignment2.Models
 {
 	internal class ReservationManager
 	{
+		public ReservationManager() 
+		{
+
+		}
 	}
 }
