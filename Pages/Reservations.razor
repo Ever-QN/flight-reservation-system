@@ -1,64 +1,64 @@
 ﻿@page "/reservations"
 
 <div class="d-flex flex-row justify-content-evenly">
-
-	<div class="d-flex flex-column">
-		<h3>Reservations</h3>
-	</div>
-
 	<div class="d-flex flex-column align-items-center">
-		<h3>Reserve</h3>
-		<form class="d-flex flex-column align-items-end">
-			<div class="form-group d-flex flex-row align-items-center">
+		<h3>Reservation Finder</h3>
+		<form class="d-flex flex-row justify-content-evenly">
+			<div class="form-group d-flex flex-column align-items-start">
 				<label>Code: </label>
 				<input type="text" class="form-control" id="code">
 			</div>
-			<div class="form-group d-flex flex-row align-items-center">
-				<label>Flight: </label>
-				<input type="text" class="form-control" id="flight">
-			</div>
-			<div class="form-group d-flex flex-row align-items-center">
+			<div class="form-group d-flex flex-column align-items-start">
 				<label>Airline: </label>
 				<input type="text" class="form-control" id="airline">
 			</div>
-			<div class="form-group d-flex flex-row align-items-center">
-				<label>Cost: </label>
-				<input type="text" class="form-control" id="cost">
-			</div>
-			<div class="form-group d-flex flex-row align-items-center">
+			<div class="form-group d-flex flex-column align-items-start">
 				<label>Name: </label>
 				<input type="text" class="form-control" id="name">
 			</div>
-			<div class="form-group d-flex flex-row align-items-center">
-				<label>Citizenship: </label>
-				<input type="text" class="form-control" id="citizenship">
+			<div class=" flex-column justify-content-evenly">
+				<button>Find reservations</button>
 			</div>
 		</form>
-		<div class="align-content-center">
-			<button>Reserve</button>
-		</div>
 	</div>
 </div>
 
+<div class="d-flex flex-column align-items-center">
+	<h3>Reservations</h3>
+	<form></form>
+</div>
 
 <div class="d-flex flex-column align-items-center">
-	<h3>Search</h3>
+	<h3>Reserve</h3>
 	<form class="d-flex flex-column align-items-end">
-		<div class="form-group d-flex flex-row align-items-center">
-			<label>Code: </label>
-			<input type="text" class="form-control" id="code">
+		<div class="form-group d-flex flex-column align-items-start">
+			<label>Reservation Code: </label>
+			<input type="text" class="form-control" id="rescode">
 		</div>
-		<div class="form-group d-flex flex-row align-items-center">
+		<div class="form-group d-flex flex-column align-items-start">
+			<label>Flight Code: </label>
+			<input type="text" class="form-control" id="flycode">
+		</div>
+		<div class="form-group d-flex flex-column align-items-start">
 			<label>Airline: </label>
 			<input type="text" class="form-control" id="airline">
 		</div>
-		<div class="form-group d-flex flex-row align-items-center">
+		<div class="form-group d-flex flex-column align-items-start">
+			<label>Cost: </label>
+			<input type="text" class="form-control" id="cost">
+		</div>
+		<div class="form-group d-flex flex-column align-items-start">
 			<label>Name: </label>
 			<input type="text" class="form-control" id="name">
 		</div>
+		<div class="form-group d-flex flex-column align-items-start">
+			<label>Citizenship: </label>
+			<input type="text" class="form-control" id="citizenship">
+		</div>
+
 	</form>
 	<div>
-		<button>Find reservations</button>
+		<button>Save</button>
 	</div>
 </div>
 
