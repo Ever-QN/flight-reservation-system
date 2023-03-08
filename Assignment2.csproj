@@ -53,4 +53,18 @@
       <Folder Include="Data\" />
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="CsvHelper" Version="30.0.1" />
+      <PackageReference Include="Microsoft.VisualBasic" Version="10.3.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Update="Resources\Files\airports.csv">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
+      <None Update="Resources\Files\flights.csv">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
+    </ItemGroup>
+
 </Project>
