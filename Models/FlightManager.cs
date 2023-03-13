@@ -14,7 +14,7 @@ namespace Assignment2.Models
 
         public FlightManager() 
 		{
-
+            populateFlights();
 		}
 
 		private void populateFlights()
@@ -38,6 +38,9 @@ namespace Assignment2.Models
                 flights.Add(flight);
             }
 		}
-
-	}
+        public static List<Flight> GetFlights()
+        {
+            return flights;
+        }
+    }
 }
