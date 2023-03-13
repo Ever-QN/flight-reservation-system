@@ -8,8 +8,8 @@ namespace Assignment2.Models
 {
 	internal class FlightManager
 	{
-        private string USERS_TEXT = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "Files", "flights.csv");
-        public static List<Airport> users = new List<Airport>();
+        private string flights_text = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "Files", "flights.csv");
+        public static List<Airport> flights = new List<Airport>();
         public FlightManager() 
 		{
 		}
