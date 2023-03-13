@@ -30,11 +30,12 @@ namespace Assignment2.Models
                 string originAirport = parts[2];
                 string destinationAirport = parts[3];
                 string day = parts[4];
-                int seats = int.Parse(parts[5]);
-                double costOfSeats = double.Parse(parts[6]);
+                string time = parts[5];
+                int seats = int.Parse(parts[6]);
+                double costOfSeats = double.Parse(parts[7]);
 
 
-                flight = new Flight(flightCode, airlineName, originAirport, destinationAirport, day, seats, costOfSeats);
+                flight = new Flight(flightCode, airlineName, originAirport, destinationAirport, day, time, seats, costOfSeats);
                 flights.Add(flight);
             }
 		}
