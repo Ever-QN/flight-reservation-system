@@ -20,7 +20,9 @@ namespace Assignment2.Models
         public string AirlineName { get {  return airlineName; } set { airlineName = value; } }
         public string OriginAirport { get { return originAirport; } set { originAirport = value; } }
         public string DestinationAirport { get { return destinationAirport; } set {  destinationAirport = value; } }
+        public string Day { get { return day; } set { day = value; } }
         public int Seats { get {  return seats; } set {  seats = value; } }
         public int CostPerSeat { get {  return costPerSeat; } set {  costPerSeat = value; } }
+
     }
 }
