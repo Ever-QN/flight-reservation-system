@@ -13,5 +13,14 @@ namespace Assignment2.Models
         private string originAirport;
         private string destinationAirport;
         private string day;
+        private int seats;
+        private int costPerSeat;
+
+        public string FlightCode { get { return flightCode; } set { flightCode = value; } }
+        public string AirlineName { get {  return airlineName; } set { airlineName = value; } }
+        public string OriginAirport { get { return originAirport; } set { originAirport = value; } }
+        public string DestinationAirport { get { return destinationAirport; } set {  destinationAirport = value; } }
+        public int Seats { get {  return seats; } set {  seats = value; } }
+        public int CostPerSeat { get {  return costPerSeat; } set {  costPerSeat = value; } }
     }
 }

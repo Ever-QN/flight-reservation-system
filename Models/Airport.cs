@@ -15,12 +15,12 @@ namespace Assignment2.Models
 		private string airportCode;
 		private string airportName;
 
-		public string AirportCode { get { return airportCode; } private set { airportCode = value; } }
-		public string AirportName { get { return airportName; } private set { airportName = value; } }
+		public string AirportCode { get { return airportCode; } set { airportCode = value; } }
+		public string AirportName { get { return airportName; } set { airportName = value; } }
 		public Airport() { }
         public Airport(string airportCode, string airportName) {
-			AirportCode = airportCode;
-			AirportName = airportName;
+			this.AirportCode = airportCode;
+			this.AirportName = airportName;
 		}
     }
 }
