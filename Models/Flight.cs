@@ -14,7 +14,7 @@ namespace Assignment2.Models
         private string destinationAirport;
         private string day;
         private int seats;
-        private int costPerSeat;
+        private double costPerSeat;
 
         public string FlightCode { get { return flightCode; } set { flightCode = value; } }
         public string AirlineName { get {  return airlineName; } set { airlineName = value; } }
@@ -22,6 +22,19 @@ namespace Assignment2.Models
         public string DestinationAirport { get { return destinationAirport; } set {  destinationAirport = value; } }
         public string Day { get { return day; } set { day = value; } }
         public int Seats { get {  return seats; } set {  seats = value; } }
-        public int CostPerSeat { get {  return costPerSeat; } set {  costPerSeat = value; } }
+        public double CostPerSeat { get {  return costPerSeat; } set {  costPerSeat = value; } }
+
+        public Flight () { }
+
+        public Flight (string flightCode, string airlineName, string originAirport, string destinationAirport, string day, int seats, double costPerSeat)
+        {
+            this.flightCode = flightCode;
+            this.AirlineName = airlineName;
+            this.OriginAirport = originAirport;
+            this.DestinationAirport = destinationAirport;
+            this.Day = day;
+            this.Seats = seats;
+            this.CostPerSeat = costPerSeat;
+        }
     }
 }
