@@ -23,6 +23,5 @@ namespace Assignment2.Models
         public string Day { get { return day; } set { day = value; } }
         public int Seats { get {  return seats; } set {  seats = value; } }
         public int CostPerSeat { get {  return costPerSeat; } set {  costPerSeat = value; } }
-
     }
 }
