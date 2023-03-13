@@ -50,16 +50,20 @@
 	<div class="d-flex flex-column align-items-end">
 		<div class="d-flex flex-row align-items-center justify-content-center mb-2">
 			<div>From: </div> &nbsp;
-			<select class="form-select" style="min-width:400px;">
-				<option>1</option>
-				<option>2</option>
+			<select @onchange="ShowAirport" class="form-select" style="min-width:400px;">
+				@foreach (var airport in airports)
+				{
+					<option value="@airport.AirportCode">@airport.AirportCode</option>
+				}
 			</select>
 		</div>
 		<div class="d-flex flex-row align-items-center justify-content-center mb-2">
 			<div>To: </div> &nbsp;
-			<select class="form-select" style="min-width:400px;">
-				<option>1</option>
-				<option>2</option>
+			<select @onchange="ShowAirport" class="form-select" style="min-width:400px;">
+				@foreach (var airport in airports)
+				{
+					<option value="@airport.AirportCode">@airport.AirportCode</option>
+				}
 			</select>
 		</div>
 		<div class="d-flex flex-row align-items-center justify-content-center mb-2">
@@ -81,4 +85,13 @@
 
 @code {
 
+	AirportManager am = new AirportManager();
+	List<Airport> airports = AirportManager.GetAirports();
+
+	string airportCode;
+
+	private void ShowAirport(ChangeEventArgs e)
+	{
+		airportCode = e.Value.ToString();
+	}
 }

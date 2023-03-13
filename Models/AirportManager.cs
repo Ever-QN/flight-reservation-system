@@ -27,7 +27,6 @@ namespace Assignment2.Models
                 string airportCode = parts[0];
                 string airportName = parts[1];
 
-
                 airport = new Airport(airportCode, airportName);
                 airports.Add(airport);
             }
