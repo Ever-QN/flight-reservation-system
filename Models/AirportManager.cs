@@ -19,17 +19,25 @@ namespace Assignment2.Models
         private void populateAirports()
         {
             Airport airport;
-
-            foreach (string line in System.IO.File.ReadLines(airports_text))
+            try
             {
-                string[] parts = line.Split(",");
+				foreach (string line in System.IO.File.ReadLines(airports_text))
+				{
+					string[] parts = line.Split(",");
 
-                string airportCode = parts[0];
-                string airportName = parts[1];
+					string airportCode = parts[0];
+					string airportName = parts[1];
 
-                airport = new Airport(airportCode, airportName);
+					airport = new Airport(airportCode, airportName);
+					airports.Add(airport);
+				}
+			}
+            catch
+            {
+                airport = new Airport("error", "error");
                 airports.Add(airport);
             }
+
         }
         public static List<Airport> GetAirports()
         {
