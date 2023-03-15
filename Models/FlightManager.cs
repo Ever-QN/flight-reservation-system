@@ -40,7 +40,7 @@ namespace Assignment2.Models
 					flights.Add(flight);
 				}
 			}
-			catch
+			catch (Exception e)
 			{
 				flight = new Flight("error", "error", "error", "error", "error", "error", int.Parse("0"), double.Parse("0"));
 				flights.Add(flight);

@@ -32,7 +32,7 @@ namespace Assignment2.Models
 					airports.Add(airport);
 				}
 			}
-            catch
+            catch (Exception e)
             {
                 airport = new Airport("error", "error");
                 airports.Add(airport);
