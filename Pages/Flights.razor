@@ -6,7 +6,7 @@
 	<div class="d-flex flex-column">
 		<h3>Flights</h3>
 		<div class="flights">
-			<p>@flightMessage</p>
+			<p></p>
 		</div>
 	</div>
 
@@ -79,7 +79,7 @@
 			</select>
 		</div>
 	</div>
-	<button @onclick="FindFlights" type="button" class="btn btn-primary mt-3">Find flights</button>
+	<button @onclick="FindFlights" type="button" class="btn btn-primary mt-3" mb-3>Find flights</button>
 </div>
 
 @code {
@@ -101,11 +101,18 @@
 		airportCode = e.Value.ToString();
 	}
 
+	string fromValue;
+	string toValue;
+
 	private void FindFlights()
 	{
+
 		foreach (var flight in flights)
 		{
-			flightMessage = flight.OriginAirport + " To " + flight.DestinationAirport;
+			if (flight.OriginAirport == fromValue && flight.DestinationAirport == toValue)
+			{
+				//code
+			}
 		}
 	}
 
