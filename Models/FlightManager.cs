@@ -20,24 +20,32 @@ namespace Assignment2.Models
 		private void populateFlights()
         {
             Flight flight;
+            try 
+            {
+				foreach (string line in System.IO.File.ReadLines(flights_text))
+				{
+					string[] parts = line.Split(",");
 
-			foreach (string line in System.IO.File.ReadLines(flights_text))
+					string flightCode = parts[0];
+					string airlineName = parts[1];
+					string originAirport = parts[2];
+					string destinationAirport = parts[3];
+					string day = parts[4];
+					string time = parts[5];
+					int seats = int.Parse(parts[6]);
+					double costOfSeats = double.Parse(parts[7]);
+
+
+					flight = new Flight(flightCode, airlineName, originAirport, destinationAirport, day, time, seats, costOfSeats);
+					flights.Add(flight);
+				}
+			}
+			catch
 			{
-                string[] parts = line.Split(",");
-
-                string flightCode = parts[0];
-                string airlineName = parts[1];
-                string originAirport = parts[2];
-                string destinationAirport = parts[3];
-                string day = parts[4];
-                string time = parts[5];
-                int seats = int.Parse(parts[6]);
-                double costOfSeats = double.Parse(parts[7]);
-
-
-                flight = new Flight(flightCode, airlineName, originAirport, destinationAirport, day, time, seats, costOfSeats);
-                flights.Add(flight);
-            }
+				flight = new Flight("error", "error", "error", "error", "error", "error", int.Parse("0"), double.Parse("0"));
+				flights.Add(flight);
+			}
+			
 		}
         public static List<Flight> GetFlights()
         {
