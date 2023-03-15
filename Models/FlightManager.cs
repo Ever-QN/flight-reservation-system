@@ -9,10 +9,10 @@ namespace Assignment2.Models
 {
 	internal class FlightManager
 	{
-        private string flights_text = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "Files", "flights.csv");
-        public static List<Flight> flights = new List<Flight>();
-
-        public FlightManager() 
+		private string flights_text = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "Files", "flights.csv");
+		public static List<Flight> flights = new List<Flight>();
+		public static List<string> daysList = new List<string>();
+		public FlightManager() 
 		{
             populateFlights();
 		}
@@ -51,5 +51,12 @@ namespace Assignment2.Models
         {
             return flights;
         }
+		
+		public static List<string> GetDays()
+		{
+			string[] daysArray = { "Any", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" };
+			daysList.AddRange(daysArray);
+			return daysList;
+		}
     }
 }
