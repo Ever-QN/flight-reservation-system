@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Assignment2.Model
+namespace Assignment2.Models
 {
     public class reservationMaking
     {
