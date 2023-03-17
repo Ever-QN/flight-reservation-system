@@ -74,7 +74,7 @@
 		</div>
 		<div class="d-flex flex-row align-items-center justify-content-center mb-2">
 			<div>Day: </div> &nbsp;
-			<select onchange="SelectDays" bind="@day" class="form-select" style="min-width:400px;">
+			<select @onchange="SelectDay" bind="@dayValue" class="form-select" style="min-width:400px;">
 				@foreach (var day in days)
 				{
 					<option value="@day">@day</option>
@@ -90,15 +90,15 @@
 	AirportManager am = new AirportManager();
 	List<Airport> airports = AirportManager.GetAirports();
 
-	string originAirportCode = "YYC";
-	string destinationAirportCode = "YYC";
+	string originAirportCode = "YYC"; // Default value on loadup
+	string destinationAirportCode = "YYC"; // Default value on loadup
 
 	FlightManager fm = new FlightManager();
 	List<Flight> flights = FlightManager.GetFlights();
 	List<string> days = FlightManager.GetDays();
 
 	string flightMessage;
-	string day;
+	string dayValue = "Any"; // Default value on loadup
 
 	private void SelectOriginAirport(ChangeEventArgs e)
 	{
@@ -119,15 +119,15 @@
 	{
 		foreach (var flight in flights)
 		{
-			
-			flightMessage = originAirportCode + destinationAirportCode + day;
+
+			flightMessage = originAirportCode + destinationAirportCode + dayValue;
 			GetFlights();
-				
+
 		}
 	}
 
-	private void SelectDays(ChangeEventArgs e)
+	private void SelectDay(ChangeEventArgs e)
 	{
-		day = e.Value.ToString();
+		dayValue = e.Value.ToString();
 	}
 }
