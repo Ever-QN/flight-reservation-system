@@ -6,10 +6,7 @@
 	<div class="d-flex flex-column">
 		<h3>Flights</h3>
 			<div class="flights-list">
-			@foreach (var airport in airports)
-			{
 				<p>@flightMessage</p>
-			}
 		</div>
 	</div>
 
@@ -59,7 +56,7 @@
 			<select @onchange="SelectOriginAirport" bind="@originAirportCode" class="form-select" style="min-width:400px;">
 				@foreach (var airport in airports)
 				{
-					<option value="@airport.AirportCode">@airport.AirportCode</option>
+					<option>@airport.AirportCode</option>
 				}
 			</select>
 		</div>
@@ -68,7 +65,7 @@
 			<select @onchange="SelectDestinationAirport" bind="@destinationAirportCode" class="form-select" style="min-width:400px;">
 				@foreach (var airport in airports)
 				{
-					<option value="@airport.AirportCode">@airport.AirportCode</option>
+					<option>@airport.AirportCode</option>
 				}
 			</select>
 		</div>
@@ -120,7 +117,7 @@
 		foreach (var flight in flights)
 		{
 		//if (flight.OriginAirport == originAirportCode && flight.DestinationAirport == destinationAirportCode && flight.Day == dayValue)
-			flightMessage = string.Join(", ", flight.AirlineName);
+			flightMessage = flight.ToString();
 			GetFlights();
 		}
 	}
