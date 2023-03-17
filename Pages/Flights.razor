@@ -43,6 +43,9 @@
 			</div>
 		</form>
 		<button type="button" class="btn btn-primary mt-3">Reserve</button>
+		<p>from: @originAirportCode</p>
+		<p>to: @destinationAirportCode</p>
+
 	</div>
 
 </div>
@@ -112,13 +115,18 @@
 		return flightMessage;
 	}
 
-	async void FindFlights()
+	private void FindFlights()
 	{
-		foreach (var flight in flights)
-		{
-		//if (flight.OriginAirport == originAirportCode && flight.DestinationAirport == destinationAirportCode && flight.Day == dayValue)
-			flightMessage = flight.ToString();
-			GetFlights();
+		/*var filteredOriginList = flights.Where(x => x.OriginAirport == originAirportCode).ToList();
+		var filteredDestinationList = flights.Where(x => x.DestinationAirport == destinationAirportCode).ToList();
+		var filteredDayList = flights.Where(x => x.Day == dayValue).ToList();*/
+
+			foreach (var flight in flights)
+			{
+			
+					flightMessage = flight.ToString();
+					GetFlights();
+			}
 		}
 	}
 
@@ -127,3 +135,15 @@
 		dayValue = e.Value.ToString();
 	}
 }
+<p>
+	from(flightclass): @foreach (var flight in flights)
+	{
+		@flight.OriginAirport
+	}
+</p>
+<p>
+	to(flightclass): @foreach (var flight in flights)
+	{
+		@flight.DestinationAirport
+	}
+</p>
