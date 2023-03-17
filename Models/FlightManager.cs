@@ -7,9 +7,9 @@ using Microsoft.Maui.Controls.Shapes;
 
 namespace Assignment2.Models
 {
-	internal class FlightManager
+	public class FlightManager
 	{
-		private string flights_text = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "Files", "flights.csv");
+		public string flights_text = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "Files", "flights.csv");
 		public static List<Flight> flights = new List<Flight>();
 		public static List<string> daysList = new List<string>();
 		public FlightManager() 

@@ -10,7 +10,7 @@ using System.Globalization;
 namespace Assignment2.Models
 {
 
-	internal class Airport
+	public class Airport
 	{
 		private string airportCode;
 		private string airportName;

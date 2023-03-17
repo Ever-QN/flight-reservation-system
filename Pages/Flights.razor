@@ -6,7 +6,7 @@
 	<div class="d-flex flex-column">
 		<h3>Flights</h3>
 		<div class="flights">
-			<p></p>
+			<p>@flightMessage</p>
 		</div>
 	</div>
 
@@ -109,9 +109,9 @@
 
 		foreach (var flight in flights)
 		{
-			if (flight.OriginAirport == fromValue && flight.DestinationAirport == toValue)
+			if (flight.OriginAirport == fromValue && flight.DestinationAirport == toValue && flight.Day == day)
 			{
-				//code
+				flightMessage = flight.ToString();
 			}
 		}
 	}

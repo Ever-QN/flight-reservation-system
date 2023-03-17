@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Assignment2.Models
 {
-    internal class AirportManager
+    public class AirportManager
     {
-        private string airports_text = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "Files", "airports.csv");
+        public string airports_text = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "Files", "airports.csv");
         public static List<Airport> airports = new List<Airport>();
 
         public AirportManager()
