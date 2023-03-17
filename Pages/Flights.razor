@@ -110,22 +110,17 @@
 		destinationAirportCode = e.Value.ToString();
 	}
 
-	private string GetFlights()
-	{
-		return flightMessage;
-	}
-
 	private void FindFlights()
 	{
+
 		/*var filteredOriginList = flights.Where(x => x.OriginAirport == originAirportCode).ToList();
 		var filteredDestinationList = flights.Where(x => x.DestinationAirport == destinationAirportCode).ToList();
 		var filteredDayList = flights.Where(x => x.Day == dayValue).ToList();*/
 		flightMessage = ""; // Reset the list so it doesn't keep infinitely adding
 		foreach (var flight in flights)
 		{
-				flightMessage += flight.ToString();
+			flightMessage += flight.ToString() + Environment.NewLine + Environment.NewLine;
 		}
-		GetFlights();
 	}
 	private void SelectDay(ChangeEventArgs e)
 	{
