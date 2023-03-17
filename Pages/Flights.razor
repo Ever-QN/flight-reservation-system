@@ -7,7 +7,7 @@
 		<h3>Flights</h3>
 			<div class="flights-list">
 				<p>@flightMessage</p>
-		</div>
+			</div>
 	</div>
 
 	<div class="d-flex flex-column align-items-center">
@@ -120,30 +120,15 @@
 		/*var filteredOriginList = flights.Where(x => x.OriginAirport == originAirportCode).ToList();
 		var filteredDestinationList = flights.Where(x => x.DestinationAirport == destinationAirportCode).ToList();
 		var filteredDayList = flights.Where(x => x.Day == dayValue).ToList();*/
-
-			foreach (var flight in flights)
-			{
-			
-					flightMessage = flight.ToString();
-					GetFlights();
-			}
+		flightMessage = ""; // Reset the list so it doesn't keep infinitely adding
+		foreach (var flight in flights)
+		{
+				flightMessage += flight.ToString();
 		}
+		GetFlights();
 	}
-
 	private void SelectDay(ChangeEventArgs e)
 	{
 		dayValue = e.Value.ToString();
 	}
 }
-<p>
-	from(flightclass): @foreach (var flight in flights)
-	{
-		@flight.OriginAirport
-	}
-</p>
-<p>
-	to(flightclass): @foreach (var flight in flights)
-	{
-		@flight.DestinationAirport
-	}
-</p>
