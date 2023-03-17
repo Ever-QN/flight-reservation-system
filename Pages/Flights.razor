@@ -5,8 +5,11 @@
 
 	<div class="d-flex flex-column">
 		<h3>Flights</h3>
-		<div class="flights">
-			<p>@flightMessage</p>
+			<div class="flights-list">
+			@foreach (var airport in airports)
+			{
+				<p>@flightMessage</p>
+			}
 		</div>
 	</div>
 
@@ -53,7 +56,7 @@
 	<div class="d-flex flex-column align-items-end">
 		<div class="d-flex flex-row align-items-center justify-content-center mb-2">
 			<div>From: </div> &nbsp;
-			<select @onchange="SelectAirport" class="form-select" style="min-width:400px;">
+			<select @onchange="SelectOriginAirport" bind="@fromValue" class="form-select" style="min-width:400px;">
 				@foreach (var airport in airports)
 				{
 					<option value="@airport.AirportCode">@airport.AirportCode</option>
@@ -62,7 +65,7 @@
 		</div>
 		<div class="d-flex flex-row align-items-center justify-content-center mb-2">
 			<div>To: </div> &nbsp;
-			<select @onchange="SelectAirport" class="form-select" style="min-width:400px;">
+			<select @onchange="SelectDestinationAirport" bind="@toValue" class="form-select" style="min-width:400px;">
 				@foreach (var airport in airports)
 				{
 					<option value="@airport.AirportCode">@airport.AirportCode</option>
@@ -96,23 +99,32 @@
 	string flightMessage;
 	string day;
 
-	private void SelectAirport(ChangeEventArgs e)
+	private void SelectOriginAirport(ChangeEventArgs e)
 	{
 		airportCode = e.Value.ToString();
+		fromValue = airportCode;
+	}
+
+	private void SelectDestinationAirport(ChangeEventArgs e)
+	{
+		airportCode = e.Value.ToString();
+		toValue = airportCode;
 	}
 
 	string fromValue;
 	string toValue;
 
-	private void FindFlights()
+	private string GetFlights()
 	{
+		return flightMessage;
+	}
 
+	async void FindFlights()
+	{
 		foreach (var flight in flights)
 		{
-			if (flight.OriginAirport == fromValue && flight.DestinationAirport == toValue && flight.Day == day)
-			{
-				flightMessage = flight.ToString();
-			}
+				flightMessage = flight.DestinationAirport;
+				GetFlights();
 		}
 	}
 
