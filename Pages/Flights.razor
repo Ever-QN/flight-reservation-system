@@ -119,10 +119,9 @@
 	{
 		foreach (var flight in flights)
 		{
-
-			flightMessage = originAirportCode + destinationAirportCode + dayValue;
+		//if (flight.OriginAirport == originAirportCode && flight.DestinationAirport == destinationAirportCode && flight.Day == dayValue)
+			flightMessage = string.Join(", ", flight.AirlineName);
 			GetFlights();
-
 		}
 	}
 

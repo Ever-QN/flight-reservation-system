@@ -39,5 +39,10 @@ namespace Assignment2.Models
             this.Seats = seats;
             this.CostPerSeat = costPerSeat;
         }
-    }
+
+		public override string ToString()
+		{
+            return string.Format("{0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}", FlightCode, AirlineName, OriginAirport, DestinationAirport, Day, Time, Seats, CostPerSeat);
+		}
+	}
 }
