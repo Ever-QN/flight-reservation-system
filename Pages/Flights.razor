@@ -6,7 +6,7 @@
 	<div class="d-flex flex-column">
 		<h3>Flights</h3>
 			<div class="flights-list">
-				<p>@flightMessage</p>
+				<p>@(new MarkupString(flightMessage))</p>
 			</div>
 	</div>
 
@@ -119,7 +119,7 @@
 		flightMessage = ""; // Reset the list so it doesn't keep infinitely adding
 		foreach (var flight in flights)
 		{
-			flightMessage += flight.ToString() + Environment.NewLine + Environment.NewLine;
+			flightMessage += flight.ToString() + "<br /><br />";
 		}
 	}
 	private void SelectDay(ChangeEventArgs e)
