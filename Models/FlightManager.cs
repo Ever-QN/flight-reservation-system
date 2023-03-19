@@ -50,10 +50,6 @@ namespace Assignment2.Models
 			
 		}
 
-		/*
-		 * get all of the flights
-		 * @return arraylist of flights
-		 */
 		public static List<Flight> GetFlights()
         {
             return flights;
@@ -66,18 +62,5 @@ namespace Assignment2.Models
 			return daysList;
 		}
 
-		/*
-		 * find flight with code
-		 * #param code Flight code
-		 * @retutn flight objects
-		 */
-
-		/* 
-		 * find flight between the airports on specific day
-		 * #param from airport code
-		 * #param to airport code
-		 * #param Weekday of the week
-		 * @return flight found
-		 */
 	}
 }

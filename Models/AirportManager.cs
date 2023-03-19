@@ -41,18 +41,9 @@ namespace Assignment2.Models
             }
 
         }
-		/*
-         * get all of the airports
-         * @return the arraylist of airports
-         */
 		public static List<Airport> GetAirports()
         {
             return airports;
         }
-		/*
-         * find airport with code
-         * #param code airport code
-         * @return airport object
-         */
 	}
 }

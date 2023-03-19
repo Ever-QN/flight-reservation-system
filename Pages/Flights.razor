@@ -93,7 +93,6 @@
 
 	FlightManager fm = new FlightManager();
 	List<Flight> flights = FlightManager.GetFlights();
-	List<Flight> filteredFlights = new List<Flight>();
 	List<string> days = FlightManager.GetDays();
 
 	string flightMessage = "No flights available from the given filters"; // Default message on loadup
@@ -112,7 +111,7 @@
 	private void FindFlights()
 	{
 
-		filteredFlights = flights.Where(x => x.OriginAirport == originAirportCode && x.DestinationAirport == destinationAirportCode).ToList();
+		var filteredFlights = flights.Where(x => x.OriginAirport == originAirportCode && x.DestinationAirport == destinationAirportCode).ToList();
 		var filteredDays = flights.Where(x => dayValue == "Any" || x.Day == dayValue).ToList();
 
 		flightMessage = ""; // Reset the list so it doesn't keep infinitely adding
@@ -124,7 +123,7 @@
 				flightMessage += flight.ToString() + "<br /><br />";
 			}
 		}
-		if (filteredFlights.Count == 0)
+		if (flightMessage == "")
 		{
 			flightMessage = "No flights available from the given filters";
 		}
