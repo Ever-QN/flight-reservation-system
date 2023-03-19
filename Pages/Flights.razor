@@ -16,31 +16,31 @@
 		<form class="d-flex flex-column align-items-end">
 			<div class="form-group d-flex flex-row align-items-center">
 				<label for="flight">Flight: </label> &nbsp
-				<input type="text" class="form-control" id="inputFlight" disabled />
+				<input type="text" @bind="selectedInputFlight" class="form-control" id="inputFlight" disabled />
 			</div>
 			<div class="form-group d-flex flex-row align-items-center">
 				<label for="airline">Airline: </label> &nbsp
-				<input type="text" class="form-control" id="inputAirline" disabled />
+				<input type="text" @bind="selectedInputAirline" class="form-control" id="inputAirline" disabled />
 			</div>
 			<div class="form-group d-flex flex-row align-items-center">
 				<label for="day">Day: </label> &nbsp
-				<input type="text" class="form-control" id="inputDay" disabled />
+				<input type="text" @bind="selectedInputDay" class="form-control" id="inputDay" disabled />
 			</div>
 			<div class="form-group d-flex flex-row align-items-center">
 				<label for="time">Time: </label> &nbsp
-				<input type="text" class="form-control" id="inputTime" disabled />
+				<input type="text" @bind="selectedInputTime" class="form-control" id="inputTime" disabled />
 			</div>
 			<div class="form-group d-flex flex-row align-items-center">
 				<label for="cost">Cost: </label> &nbsp
-				<input type="text" class="form-control" id="inputCost" disabled />
+				<input type="text" @bind="selectedInputCost" class="form-control" id="inputCost" disabled />
 			</div>
 			<div class="form-group d-flex flex-row align-items-center">
 				<label for="name">Name: </label> &nbsp
-				<input type="text" class="form-control" id="inputName" />
+				<input type="text" @bind="selectedInputName" class="form-control" id="inputName" />
 			</div>
 			<div class="form-group d-flex flex-row align-items-center">
 				<label for="citizenship">Citizenship: </label> &nbsp
-				<input type="text" class="form-control" id="inputCitizenship" />
+				<input type="text" @bind="selectedInputCitizenship" class="form-control" id="inputCitizenship" />
 			</div>
 			<div class="form-group d-flex flex-row align-items-center">
 				<label for="status">Status: </label> &nbsp
@@ -107,7 +107,7 @@
 	string selectedInputAirline;
 	string selectedInputDay;
 	string selectedInputTime;
-	string selectedInputCost;
+	double selectedInputCost;
 	string selectedInputName;
 	string selectedInputCitizenship;
 
@@ -119,11 +119,6 @@
 	private void SelectDestinationAirport(ChangeEventArgs e)
 	{
 		destinationAirportCode = e.Value.ToString();
-	}
-
-	private void FillInputForms(Flight flight)
-	{
-		
 	}
 
 	private void FindFlights()
@@ -139,6 +134,11 @@
 			if (filteredFlights.Contains(flight) && filteredDays.Contains(flight))
 			{
 				flightMessage += flight.ToString() + "<br /><br />";
+				selectedInputFlight = flight.FlightCode;
+				selectedInputAirline = flight.AirlineName;
+				selectedInputDay = flight.Day;
+				selectedInputTime = flight.Time;
+				selectedInputCost = flight.CostPerSeat;
 			}
 		}
 		if (flightMessage == "")
