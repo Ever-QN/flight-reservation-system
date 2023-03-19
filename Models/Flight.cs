@@ -1,4 +1,6 @@
-﻿using System;
+﻿// Quynh's part
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,18 +8,6 @@ using System.Threading.Tasks;
 
 namespace Assignment2.Models
 {
-
-	/*
-	 * flight constructor with flight code
-	 */
-
-	/*
-	 * flight constructor with all data members
-	 */
-
-	/*
-	 * getters and setters for all members
-	 */
 	internal class Flight
     {
         private string flightCode;
