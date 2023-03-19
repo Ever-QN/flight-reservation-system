@@ -4,7 +4,7 @@
 	<div class="d-flex flex-column align-items-center">
 		<h3>Reservation Finder</h3>
 		<form class="d-flex flex-row justify-content-evenly">
-			<div class="form-group d-flex flex-column align-items-start">
+			<div class="form-group d-flex flex-column align-items-start" type="text">
 				<label>Code: </label>
 				<input type="text" class="form-control" id="code">
 			</div>
@@ -17,7 +17,7 @@
 				<input type="text" class="form-control" id="name">
 			</div>
 			<div class=" flex-column justify-content-evenly">
-				<button>Find reservations</button>
+				<button type="button" class="btn btn-primary mt-3">Find reservations</button>
 			</div>
 		</form>
 	</div>
@@ -30,39 +30,49 @@
 
 <div class="d-flex flex-column align-items-center">
 	<h3>Reserve</h3>
-	<form class="d-flex flex-column align-items-end">
-		<div class="form-group d-flex flex-column align-items-start">
+	<form class="d-flex flex-column align-items-end"> 
+		<div class="form-group d-flex flex-column align-items-start long">
 			<label>Reservation Code: </label>
 			<input type="text" class="form-control" id="rescode">
 		</div>
-		<div class="form-group d-flex flex-column align-items-start">
-			<label>Flight Code: </label>
+		<div class="form-group d-flex flex-column align-items-start long">
+			<label>Flight Code: </label><input class="form-control" type="text" plaveholder="userid" @bind-value="flightCode" />
 			<input type="text" class="form-control" id="flycode">
 		</div>
-		<div class="form-group d-flex flex-column align-items-start">
-			<label>Airline: </label>
+		<div class="form-group d-flex flex-column align-items-start long">
+			<label>Airline: </label><input class="form-control" type="text" plaveholder="userid" @bind-value="airline" />
 			<input type="text" class="form-control" id="airline">
 		</div>
-		<div class="form-group d-flex flex-column align-items-start">
-			<label>Cost: </label>
+		<div class="form-group d-flex flex-column align-items-startab-content long">
+			<label>Cost: </label><input class="form-control" type="text" plaveholder="userid" @bind-value="cost" />
 			<input type="text" class="form-control" id="cost">
 		</div>
-		<div class="form-group d-flex flex-column align-items-start">
-			<label>Name: </label>
+		<div class="form-group d-flex flex-column align-items-start long">
+			<label>Name: </label><input class="form-control" type="text" plaveholder="userid" @bind-value="name" />
 			<input type="text" class="form-control" id="name">
 		</div>
-		<div class="form-group d-flex flex-column align-items-start">
-			<label>Citizenship: </label>
+		<div class="form-group d-flex flex-column align-items-start long">
+			<label>Citizenship: </label><input class="form-control" type="text" plaveholder="userid" @bind-value="citizenship" />
 			<input type="text" class="form-control" id="citizenship">
+		</div>
+		<div class="form-group d-flex flex-column align-items-start long">
+			<label>Active: </label>
+			<input type="text" class="form-control" id="active">
 		</div>
 
 	</form>
 	<div>
-		<button>Save</button>
+		<button type="button" class="btn btn-primary mt-3">Save</button>
 	</div>
 </div>
 
 
 @code {
+	static string flightCode;
+	static string airline;
+	static int cost;
+	static string name;
+	static string citizenship;
+
 
 }

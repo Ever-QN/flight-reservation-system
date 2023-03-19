@@ -18,6 +18,14 @@ a, .btn-link {
     border-color: #1861ac;
 }
 
+.long {
+    width: 813px;
+}
+
+.save-btn {
+    width: 250px;
+}
+
 .content {
     padding-top: 1.1rem;
 }

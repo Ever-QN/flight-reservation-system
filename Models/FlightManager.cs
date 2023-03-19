@@ -7,7 +7,7 @@ using Microsoft.Maui.Controls.Shapes;
 
 namespace Assignment2.Models
 {
-	internal class FlightManager
+	class FlightManager
 	{
 		private string flights_text = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "Files", "flights.csv");
 		public static List<Flight> flights = new List<Flight>();
@@ -47,7 +47,12 @@ namespace Assignment2.Models
 			}
 			
 		}
-        public static List<Flight> GetFlights()
+
+		/*
+		 * get all of the flights
+		 * @return arraylist of flights
+		 */
+		public static List<Flight> GetFlights()
         {
             return flights;
         }
@@ -58,5 +63,19 @@ namespace Assignment2.Models
 			daysList.AddRange(daysArray);
 			return daysList;
 		}
-    }
+
+		/*
+		 * find flight with code
+		 * #param code Flight code
+		 * @retutn flight objects
+		 */
+
+		/* 
+		 * find flight between the airports on specific day
+		 * #param from airport code
+		 * #param to airport code
+		 * #param Weekday of the week
+		 * @return flight found
+		 */
+	}
 }

@@ -7,7 +7,7 @@ using Assignment2.Models;
 
 namespace Assignment2.Models
 {
-    public class reservationMaking
+    class reservationMaking
     {
         private readonly List<Flight> flights;
         private readonly FlightManager flightManager;
@@ -19,8 +19,14 @@ namespace Assignment2.Models
             this.airportManager = airportManager;
             flights = flightManager.GetFlights();
         }
-
-        public Reservation makeReservation(Flight chosenFlight, string name, string citizenship)
+	/*
+     * Make a reservation
+     * #param flight to book
+     * #param name of the person
+     * #param citizenship of person
+     * @return created reservation
+     */
+		public makeReservation(Flight chosenFlight, string name, string citizenship)
         {
             if (chosenFlight == null)
             {
@@ -37,12 +43,12 @@ namespace Assignment2.Models
                 throw new ArgumentException("Citizenship field not completed");
             }
 
-            if (chosenFlight.Capacity <= 0)
+            if (chosenFlight.Seats <= 0)
             {
                 throw new ArgumentException("The flight is completely booked");
             }
 
-            var reservationCode = GenerateReservationCode();
+            var reservationCode = ReservationManager.reservation_binary;
 
             var reservation = new Reservation
             {
@@ -52,7 +58,7 @@ namespace Assignment2.Models
                 Flight = chosenFlight
             };
 
-            chosenFlight.Capacity--;
+            chosenFlight.Seats--;
 
             {
                 var line = $"{reservation.ReservationCode},{reservation.Flight.FlightCode},{reservation.PassengerName},{reservation.Citizenship}";

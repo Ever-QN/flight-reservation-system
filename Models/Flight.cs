@@ -6,7 +6,19 @@ using System.Threading.Tasks;
 
 namespace Assignment2.Models
 {
-    internal class Flight
+
+	/*
+	 * flight constructor with flight code
+	 */
+
+	/*
+	 * flight constructor with all data members
+	 */
+
+	/*
+	 * getters and setters for all members
+	 */
+	internal class Flight
     {
         private string flightCode;
         private string airlineName;
