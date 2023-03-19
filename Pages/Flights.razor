@@ -95,7 +95,7 @@
 	List<Flight> filteredFlights = new List<Flight>();
 	List<string> days = FlightManager.GetDays();
 
-	string flightMessage;
+	string flightMessage = "No flights available from the given filters"; // Default message on loadup
 	string dayValue = "Any"; // Default value on loadup
 
 	private void SelectOriginAirport(ChangeEventArgs e)
@@ -125,7 +125,7 @@
 		}
 		if (filteredFlights.Count == 0)
 		{
-			flightMessage = "No flights available.";
+			flightMessage = "No flights available from the given filters";
 		}
 	}
 	private void SelectDay(ChangeEventArgs e)
