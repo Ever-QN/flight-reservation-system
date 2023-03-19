@@ -9,15 +9,15 @@ namespace Assignment2.Models
 {
     class reservationMaking
     {
-        private readonly List<Flight> flights;
-        private readonly FlightManager flightManager;
-        private readonly AirportManager airportManager;
+        public readonly List<Flight> flights;
+        public readonly FlightManager flightManager;
+        public readonly AirportManager airportManager;
 
         public reservationMaking(FlightManager flightManager, AirportManager airportManager)
         {
             this.flightManager = flightManager;
             this.airportManager = airportManager;
-            flights = flightManager.GetFlights();
+            flights = FlightManager.GetFlights();
         }
 	/*
      * Make a reservation
@@ -50,7 +50,7 @@ namespace Assignment2.Models
 
             var reservationCode = ReservationManager.reservation_binary;
 
-            var reservation = new Reservation
+            /*var reservation = new Reservation
             {
                 PassengerName = name,
                 Citizenship = citizenship,
@@ -66,7 +66,7 @@ namespace Assignment2.Models
                 File.AppendAllText("reservations.csv", line + Environment.NewLine);
             }
 
-            return reservation;
+            return reservation; */
         }
     }
 }

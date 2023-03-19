@@ -5,9 +5,9 @@
 
 	<div class="d-flex flex-column">
 		<h3>Flights</h3>
-		<div class="flights">
-			<p></p>
-		</div>
+			<div class="flights-list">
+				<p>@(new MarkupString(flightMessage))</p>
+			</div>
 	</div>
 
 	<div class="d-flex flex-column align-items-center">
@@ -43,6 +43,9 @@
 			</div>
 		</form>
 		<button type="button" class="btn btn-primary mt-3">Reserve</button>
+		<p>from: @originAirportCode</p>
+		<p>to: @destinationAirportCode</p>
+
 	</div>
 
 </div>
@@ -53,25 +56,25 @@
 	<div class="d-flex flex-column align-items-end">
 		<div class="d-flex flex-row align-items-center justify-content-center mb-2">
 			<div>From: </div> &nbsp;
-			<select @onchange="SelectAirport" class="form-select" style="min-width:400px;">
+			<select @onchange="SelectOriginAirport" bind="@originAirportCode" class="form-select" style="min-width:400px;">
 				@foreach (var airport in airports)
 				{
-					<option value="@airport.AirportCode">@airport.AirportCode</option>
+					<option>@airport.AirportCode</option>
 				}
 			</select>
 		</div>
 		<div class="d-flex flex-row align-items-center justify-content-center mb-2">
 			<div>To: </div> &nbsp;
-			<select @onchange="SelectAirport" class="form-select" style="min-width:400px;">
+			<select @onchange="SelectDestinationAirport" bind="@destinationAirportCode" class="form-select" style="min-width:400px;">
 				@foreach (var airport in airports)
 				{
-					<option value="@airport.AirportCode">@airport.AirportCode</option>
+					<option>@airport.AirportCode</option>
 				}
 			</select>
 		</div>
 		<div class="d-flex flex-row align-items-center justify-content-center mb-2">
 			<div>Day: </div> &nbsp;
-			<select onchange="SelectDays" class="form-select" style="min-width:400px;">
+			<select @onchange="SelectDay" bind="@dayValue" class="form-select" style="min-width:400px;">
 				@foreach (var day in days)
 				{
 					<option value="@day">@day</option>
@@ -87,37 +90,40 @@
 	AirportManager am = new AirportManager();
 	List<Airport> airports = AirportManager.GetAirports();
 
-	string airportCode;
+	string originAirportCode = "YYC"; // Default value on loadup
+	string destinationAirportCode = "YYC"; // Default value on loadup
 
 	FlightManager fm = new FlightManager();
 	List<Flight> flights = FlightManager.GetFlights();
 	List<string> days = FlightManager.GetDays();
 
 	string flightMessage;
-	string day;
+	string dayValue = "Any"; // Default value on loadup
 
-	private void SelectAirport(ChangeEventArgs e)
+	private void SelectOriginAirport(ChangeEventArgs e)
 	{
-		airportCode = e.Value.ToString();
+		originAirportCode = e.Value.ToString();
 	}
 
-	string fromValue;
-	string toValue;
+	private void SelectDestinationAirport(ChangeEventArgs e)
+	{
+		destinationAirportCode = e.Value.ToString();
+	}
 
 	private void FindFlights()
 	{
 
+		/*var filteredOriginList = flights.Where(x => x.OriginAirport == originAirportCode).ToList();
+		var filteredDestinationList = flights.Where(x => x.DestinationAirport == destinationAirportCode).ToList();
+		var filteredDayList = flights.Where(x => x.Day == dayValue).ToList();*/
+		flightMessage = ""; // Reset the list so it doesn't keep infinitely adding
 		foreach (var flight in flights)
 		{
-			if (flight.OriginAirport == fromValue && flight.DestinationAirport == toValue)
-			{
-				//code
-			}
+			flightMessage += flight.ToString() + "<br /><br />";
 		}
 	}
-
-	private void SelectDays(ChangeEventArgs e)
+	private void SelectDay(ChangeEventArgs e)
 	{
-		day = e.Value.ToString();
+		dayValue = e.Value.ToString();
 	}
 }

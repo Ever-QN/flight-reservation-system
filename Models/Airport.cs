@@ -10,7 +10,7 @@ using System.Globalization;
 namespace Assignment2.Models
 {
 
-	internal class Airport
+	public class Airport
 	{
 		private string airportCode;
 		private string airportName;
@@ -22,5 +22,9 @@ namespace Assignment2.Models
 			this.AirportCode = airportCode;
 			this.AirportName = airportName;
 		}
-    }
+		public override string ToString()
+		{
+			return string.Format("{0}, {1}", AirportCode, AirportName);
+		}
+	}
 }
