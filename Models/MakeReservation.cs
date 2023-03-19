@@ -26,7 +26,7 @@ namespace Assignment2.Models
      * #param citizenship of person
      * @return created reservation
      */
-		public makeReservation(Flight chosenFlight, string name, string citizenship)
+		public void makeReservation(Flight chosenFlight, string name, string citizenship)
         {
             if (chosenFlight == null)
             {

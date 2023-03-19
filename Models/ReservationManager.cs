@@ -15,7 +15,7 @@ namespace Assignment2.Models
 		public const string reservation_binary = "res/reservation.txt";
 
 		public static List<Reservation> reservations = new List<Reservation>();
-		private static MakeReservation.reservation reservation;
+		private static reservationMaking reservation;
 
 		/*
 		 * getReservation return the list of reservations
@@ -52,7 +52,7 @@ namespace Assignment2.Models
 		 */
 		public static Reservation Findreservation(string reservationCode, string airline, string name)
 		{
-			foreach (Reservation reservation in reservation)
+			foreach (Reservation reservation in reservations)
 			{
 				if (reservation.Equals(reservationCode) && reservation.Equals(airline) && reservation.Equals(name))
 					return reservation;

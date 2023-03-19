@@ -113,10 +113,11 @@
 	private void FindFlights()
 	{
 
-		/*var filteredOriginList = flights.Where(x => x.OriginAirport == originAirportCode).ToList();
+		var filteredOriginList = flights.Where(x => x.OriginAirport == originAirportCode).ToList();
 		var filteredDestinationList = flights.Where(x => x.DestinationAirport == destinationAirportCode).ToList();
-		var filteredDayList = flights.Where(x => x.Day == dayValue).ToList();*/
+		var filteredDayList = flights.Where(x => x.Day == dayValue).ToList();
 		flightMessage = ""; // Reset the list so it doesn't keep infinitely adding
+
 		foreach (var flight in flights)
 		{
 			flightMessage += flight.ToString() + "<br /><br />";
