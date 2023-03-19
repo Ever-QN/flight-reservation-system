@@ -43,9 +43,6 @@
 			</div>
 		</form>
 		<button type="button" class="btn btn-primary mt-3">Reserve</button>
-		<p>from: @originAirportCode</p>
-		<p>to: @destinationAirportCode</p>
-
 	</div>
 
 </div>
@@ -95,6 +92,7 @@
 
 	FlightManager fm = new FlightManager();
 	List<Flight> flights = FlightManager.GetFlights();
+	List<Flight> filteredFlights = new List<Flight>();
 	List<string> days = FlightManager.GetDays();
 
 	string flightMessage;
@@ -113,14 +111,21 @@
 	private void FindFlights()
 	{
 
-		var filteredOriginList = flights.Where(x => x.OriginAirport == originAirportCode).ToList();
-		var filteredDestinationList = flights.Where(x => x.DestinationAirport == destinationAirportCode).ToList();
-		var filteredDayList = flights.Where(x => x.Day == dayValue).ToList();
+		filteredFlights = flights.Where(x => x.OriginAirport == originAirportCode && x.DestinationAirport == destinationAirportCode).ToList();
+		var filteredDays = flights.Where(x => dayValue == "Any" || x.Day == dayValue).ToList();
+
 		flightMessage = ""; // Reset the list so it doesn't keep infinitely adding
 
-		foreach (var flight in flights)
+		foreach (var flight in filteredFlights)
 		{
-			flightMessage += flight.ToString() + "<br /><br />";
+			if (filteredFlights.Contains(flight) && filteredDays.Contains(flight))
+			{
+				flightMessage += flight.ToString() + "<br /><br />";
+			}
+		}
+		if (filteredFlights.Count == 0)
+		{
+			flightMessage = "No flights available.";
 		}
 	}
 	private void SelectDay(ChangeEventArgs e)
