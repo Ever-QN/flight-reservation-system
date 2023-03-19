@@ -16,23 +16,23 @@
 		<form class="d-flex flex-column align-items-end">
 			<div class="form-group d-flex flex-row align-items-center">
 				<label for="flight">Flight: </label> &nbsp
-				<input type="text" class="form-control" id="inputFlight" />
+				<input type="text" class="form-control" id="inputFlight" disabled />
 			</div>
 			<div class="form-group d-flex flex-row align-items-center">
 				<label for="airline">Airline: </label> &nbsp
-				<input type="text" class="form-control" id="inputAirline" />
+				<input type="text" class="form-control" id="inputAirline" disabled />
 			</div>
 			<div class="form-group d-flex flex-row align-items-center">
 				<label for="day">Day: </label> &nbsp
-				<input type="text" class="form-control" id="inputDay" />
+				<input type="text" class="form-control" id="inputDay" disabled />
 			</div>
 			<div class="form-group d-flex flex-row align-items-center">
 				<label for="time">Time: </label> &nbsp
-				<input type="text" class="form-control" id="inputTime" />
+				<input type="text" class="form-control" id="inputTime" disabled />
 			</div>
 			<div class="form-group d-flex flex-row align-items-center">
 				<label for="cost">Cost: </label> &nbsp
-				<input type="text" class="form-control" id="inputCost" />
+				<input type="text" class="form-control" id="inputCost" disabled />
 			</div>
 			<div class="form-group d-flex flex-row align-items-center">
 				<label for="name">Name: </label> &nbsp
@@ -41,6 +41,13 @@
 			<div class="form-group d-flex flex-row align-items-center">
 				<label for="citizenship">Citizenship: </label> &nbsp
 				<input type="text" class="form-control" id="inputCitizenship" />
+			</div>
+			<div class="form-group d-flex flex-row align-items-center">
+				<label for="status">Status: </label> &nbsp
+			<select style="width: 220px; padding: 5px">
+				<option>Active</option>
+				<option>Inactive</option>
+			</select>
 			</div>
 		</form>
 		<button type="button" class="btn btn-primary mt-3">Reserve</button>
@@ -84,7 +91,6 @@
 </div>
 
 @code {
-
 	AirportManager am = new AirportManager();
 	List<Airport> airports = AirportManager.GetAirports();
 
@@ -97,6 +103,13 @@
 
 	string flightMessage = "No flights available from the given filters"; // Default message on loadup
 	string dayValue = "Any"; // Default value on loadup
+	string selectedInputFlight;
+	string selectedInputAirline;
+	string selectedInputDay;
+	string selectedInputTime;
+	string selectedInputCost;
+	string selectedInputName;
+	string selectedInputCitizenship;
 
 	private void SelectOriginAirport(ChangeEventArgs e)
 	{
@@ -106,6 +119,11 @@
 	private void SelectDestinationAirport(ChangeEventArgs e)
 	{
 		destinationAirportCode = e.Value.ToString();
+	}
+
+	private void FillInputForms(Flight flight)
+	{
+		
 	}
 
 	private void FindFlights()
