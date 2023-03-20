@@ -1,4 +1,5 @@
 ﻿@page "/reservations"
+@using Assignment2.Models;
 
 <div class="d-flex flex-row justify-content-evenly">
 	<div class="d-flex flex-column align-items-center">
@@ -17,7 +18,7 @@
 				<input type="text" class="form-control" id="name">
 			</div>
 			<div class=" flex-column justify-content-evenly">
-				<button type="button" class="btn btn-primary mt-3">Find reservations</button>
+				<button @onclick="FindReservation" type="button" class="btn btn-primary mt-3">Find reservations</button>
 			</div>
 		</form>
 	</div>
@@ -25,7 +26,9 @@
 
 <div class="d-flex flex-column align-items-center">
 	<h3>Reservations</h3>
-	<form></form>
+	<div class="flights-list">
+		<p>@(new MarkupString(resMessage))</p>
+	</div>
 </div>
 
 <div class="d-flex flex-column align-items-center">
@@ -33,31 +36,31 @@
 	<form class="d-flex flex-column align-items-end"> 
 		<div class="form-group d-flex flex-column align-items-start long">
 			<label>Reservation Code: </label>
-			<input type="text" class="form-control" id="rescode">
+			<input type="text" class="form-control" id="rescode" placeholder="Reservation Code">
 		</div>
 		<div class="form-group d-flex flex-column align-items-start long">
-			<label>Flight Code: </label><input class="form-control" type="text" plaveholder="userid" @bind-value="flightCode" />
-			<input type="text" class="form-control" id="flycode">
+			<label>Flight Code: </label>
+			<input class="form-control" type="text" id="flycode"placeholder="Flight Code" @bind-value="flightCode" />
 		</div>
 		<div class="form-group d-flex flex-column align-items-start long">
-			<label>Airline: </label><input class="form-control" type="text" plaveholder="userid" @bind-value="airline" />
-			<input type="text" class="form-control" id="airline">
+			<label>Airline: </label>
+			<input class="form-control" type="text" id="airline" placeholder="Airline" @bind-value="airline" />
 		</div>
 		<div class="form-group d-flex flex-column align-items-startab-content long">
-			<label>Cost: </label><input class="form-control" type="text" plaveholder="userid" @bind-value="cost" />
-			<input type="text" class="form-control" id="cost">
+			<label>Cost: </label>
+			<input class="form-control" type="text" id="cost" placeholder="0" @bind-value="cost" />
 		</div>
 		<div class="form-group d-flex flex-column align-items-start long">
-			<label>Name: </label><input class="form-control" type="text" plaveholder="userid" @bind-value="name" />
-			<input type="text" class="form-control" id="name">
+			<label>Name: </label>
+			<input class="form-control" type="text" id="name" placeholder="Name" @bind-value="name" />
 		</div>
 		<div class="form-group d-flex flex-column align-items-start long">
-			<label>Citizenship: </label><input class="form-control" type="text" plaveholder="userid" @bind-value="citizenship" />
-			<input type="text" class="form-control" id="citizenship">
+			<label>Citizenship: </label>
+			<input class="form-control" type="text" id="citizenship" placeholder="Citizenship" @bind-value="citizenship" />
 		</div>
 		<div class="form-group d-flex flex-column align-items-start long">
 			<label>Active: </label>
-			<input type="text" class="form-control" id="active">
+			<input type="text" class="form-control" id="active" placeholder="Active">
 		</div>
 
 	</form>
@@ -74,5 +77,16 @@
 	static string name;
 	static string citizenship;
 
+	string resMessage = " ";
 
+	private void FindReservation()
+	{
+
+		resMessage = "";
+
+		if (resMessage == "")
+		{
+			//resMessage += FindReservation().ToString()
+		}
+	}
 }
