@@ -35,7 +35,7 @@ namespace Assignment2.Models
          * @return reservation object(s)
          * (To.String)
          */
-		public static Reservation Findreservation(string reservationCode, string airline, string name)
+		public static List<Reservation> Findreservation(string reservationCode, string airline, string name)
         {
             List<Reservation> found = new List<Reservation>();
 
