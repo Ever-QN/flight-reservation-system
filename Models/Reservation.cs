@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Assignment2.Models
 {
-	class Reservation
+	public class Reservation
 	{
 		private string reservationCode;		
 		private string flightCode;

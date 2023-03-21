@@ -55,7 +55,7 @@ namespace Assignment2.Models
             chosenFlight.Seats--;
 
             {
-                var line = $"{reservation.ReservationCode},{reservation.Flight.FlightCode},{reservation.PassengerName},{reservation.Citizenship}";
+                var line = $"{reservation.ReservationCode},{reservation.flights.FlightCode},{reservation.PassengerName},{reservation.Citizenship}";
 
                 File.AppendAllText("reservations.txt", line + Environment.NewLine);
             }

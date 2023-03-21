@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Assignment2.Models
 {
-	class ReservationManager
+	public class ReservationManager
 	{
 		/*
 		 * location of reservation code 
