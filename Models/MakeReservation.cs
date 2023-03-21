@@ -12,7 +12,7 @@ namespace Assignment2.Models
 		public readonly List<Flight> flights;
 		public readonly FlightManager flightManager;
 		public readonly AirportManager airportManager;
-		public readonly string reservations_text;
+		public readonly string reservations_text = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "Files", "reservations.csv");
 
 		public ReservationMaking() { }
 		public ReservationMaking(FlightManager flightManager, AirportManager airportManager)
@@ -20,7 +20,7 @@ namespace Assignment2.Models
 			this.flightManager = flightManager;
 			this.airportManager = airportManager;
 			flights = FlightManager.GetFlights();
-			reservations_text = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "Files", "reservations.csv");
+
 		}
 
 		public Reservation MakeReservation(Flight chosenFlight, string name, string citizenship)
