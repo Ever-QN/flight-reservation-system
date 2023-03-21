@@ -42,7 +42,7 @@ namespace Assignment2.Models
                 throw new ArgumentException("The flight is completely booked");
             }
 
-            var reservationCode = ReservationManager.GenerateReservationCode(); // Call the GenerateReservationCode method here
+            var reservationCode = ReservationManager.GenerateReservationCode();
 
             var reservation = new Reservation
             {
