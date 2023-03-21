@@ -18,26 +18,21 @@ namespace Assignment2.Models
             populateAirports();
         }
 
-		/*
-        * method to populate the airport information
-        * @param -  no parameters
-        * @return - no return
-        */
-		private void populateAirports()
+	private void populateAirports()
         {
             Airport airport;
             try
             {
-				foreach (string line in System.IO.File.ReadLines(airports_text))
-				{
-					string[] parts = line.Split(",");
+		foreach (string line in System.IO.File.ReadLines(airports_text))
+		{
+			string[] parts = line.Split(",");
 
-					string airportCode = parts[0];
-					string airportName = parts[1];
+			string airportCode = parts[0];
+			string airportName = parts[1];
 
-					airport = new Airport(airportCode, airportName);
-					airports.Add(airport);
-				}
+			airport = new Airport(airportCode, airportName);
+			airports.Add(airport);
+		}
 			}
             catch (Exception e)
             {
