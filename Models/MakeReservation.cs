@@ -12,7 +12,7 @@ namespace Assignment2.Models
 		public readonly List<Flight> flights;
 		public readonly FlightManager flightManager;
 		public readonly AirportManager airportManager;
-		public readonly string reservations_text = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "Files", "reservations.csv");
+		public string reservations_text = AppDomain.CurrentDomain.BaseDirectory + "../../../../../Resources/Files/reservations.csv";
 
 		public ReservationMaking() { }
 		public ReservationMaking(FlightManager flightManager, AirportManager airportManager)
