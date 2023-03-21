@@ -46,19 +46,16 @@ namespace Assignment2.Models
 
             var reservation = new Reservation
             {
-                ReservationCode = reservationCode,
-                FlightCode = chosenFlight.FlightCode,
-                Airline = chosenFlight.Airline,
-                CostPerSeat = chosenFlight.CostPerSeat,
-                Name = name,
+                PassengerName = name,
                 Citizenship = citizenship,
-                Active = "1" // Assuming "1" means the reservation is active
+                ReservationCode = reservationCode,
+                Flight = chosenFlight
             };
 
             chosenFlight.Seats--;
 
             {
-                var line = $"{reservation.ReservationCode},{reservation.FlightCode},{reservation.Name},{reservation.Citizenship}";
+                var line = $"{reservation.ReservationCode},{reservation.Flight.FlightCode},{reservation.PassengerName},{reservation.Citizenship}";
 
                 File.AppendAllText("reservations.txt", line + Environment.NewLine);
             }
