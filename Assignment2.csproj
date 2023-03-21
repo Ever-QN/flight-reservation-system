@@ -59,6 +59,9 @@
     </ItemGroup>
 
     <ItemGroup>
+      <None Update="Resources\Files\references.csv">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
       <None Update="Resources\Files\airports.csv">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </None>
