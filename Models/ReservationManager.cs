@@ -15,7 +15,7 @@ namespace Assignment2.Models
         public const string reservation_binary = "res/reservation.txt";
 
         public static List<Reservation> reservations = new List<Reservation>();
-        private static reservationMaking reservation;
+        private static ReservationMaking reservation;
 
         /*
          * getReservation return the list of reservations
