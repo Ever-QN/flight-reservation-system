@@ -101,8 +101,6 @@
 	List<Flight> flights = FlightManager.GetFlights();
 	List<string> days = FlightManager.GetDays();
 
-
-
 	string flightMessage = "No flights available from the given filters"; // Default message on loadup
 	string reserveMessage = "";
 	string dayValue = "Any"; // Default value on loadup
@@ -117,6 +115,7 @@
 
 	private void SaveReservation()
 	{
+		var ReservationMaker = new ReservationMaking();
 		var chosenFlight = FlightManager.GetFlights().FirstOrDefault(f => f.FlightCode.Equals(selectedInputFlight, StringComparison.OrdinalIgnoreCase));
 
 		if (chosenFlight == null)
