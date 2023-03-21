@@ -44,7 +44,7 @@ namespace Assignment2.Models
 
             var reservationCode = ReservationManager.GenerateReservationCode();
             string flightCode = chosenFlight.FlightCode;
-            string airline = chosenFlight.Airline;
+            string airline = chosenFlight.AirlineName;
             double costPerSeat = chosenFlight.CostPerSeat;
             string active = "Active";
 
