@@ -7,20 +7,20 @@ using Assignment2.Models;
 
 namespace Assignment2.Models
 {
-    public class reservationMaking
+    public class ReservationMaking
     {
         public readonly List<Flight> flights;
         public readonly FlightManager flightManager;
         public readonly AirportManager airportManager;
 
-        public reservationMaking(FlightManager flightManager, AirportManager airportManager)
+        public ReservationMaking(FlightManager flightManager, AirportManager airportManager)
         {
             this.flightManager = flightManager;
             this.airportManager = airportManager;
             flights = FlightManager.GetFlights();
         }
 
-        public Reservation makeReservation(Flight chosenFlight, string name, string citizenship)
+        public Reservation MakeReservation(Flight chosenFlight, string name, string citizenship)
         {
             if (chosenFlight == null)
             {
@@ -43,19 +43,17 @@ namespace Assignment2.Models
             }
 
             var reservationCode = ReservationManager.GenerateReservationCode();
+            string flightCode = chosenFlight.FlightCode;
+            string airline = chosenFlight.Airline;
+            double costPerSeat = chosenFlight.CostPerSeat;
+            string active = "Active";
 
-            var reservation = new Reservation
-            {
-                PassengerName = name,
-                Citizenship = citizenship,
-                ReservationCode = reservationCode,
-                Flight = chosenFlight
-            };
+            var reservation = new Reservation(reservationCode, flightCode, airline, costPerSeat, name, citizenship, active);
 
             chosenFlight.Seats--;
 
             {
-                var line = $"{reservation.ReservationCode},{reservation.Flight.FlightCode},{reservation.PassengerName},{reservation.Citizenship}";
+                var line = $"{reservation.ReservationCode},{reservation.FlightCode},{reservation.Name},{reservation.Citizenship}";
 
                 File.AppendAllText("reservations.txt", line + Environment.NewLine);
             }
