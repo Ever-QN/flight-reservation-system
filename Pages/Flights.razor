@@ -50,9 +50,9 @@
 			</select>
 			</div>
 		</form>
-		<button type="button" class="btn btn-primary mt-3">Reserve</button>
+		<button @onclick="SaveReservation" type="button" class="btn btn-primary mt-3">Reserve</button>
+		<p @bind="reserveMessage"></p>
 	</div>
-
 </div>
 
 
@@ -102,6 +102,7 @@
 	List<string> days = FlightManager.GetDays();
 
 	string flightMessage = "No flights available from the given filters"; // Default message on loadup
+	string reserveMessage = "";
 	string dayValue = "Any"; // Default value on loadup
 	string selectedInputFlight;
 	string selectedInputAirline;
@@ -110,6 +111,29 @@
 	double selectedInputCost;
 	string selectedInputName;
 	string selectedInputCitizenship;
+
+
+	private void SaveReservation()
+	{
+		var ReservationMaker = new ReservationMaking();
+		var chosenFlight = FlightManager.GetFlights().FirstOrDefault(f => f.FlightCode.Equals(selectedInputFlight, StringComparison.OrdinalIgnoreCase));
+
+		if (chosenFlight == null)
+		{
+			reserveMessage = $"Flight with code {selectedInputFlight} not found";
+			return;
+		}
+
+		try
+		{
+			var reservation = ReservationMaker.MakeReservation(chosenFlight, selectedInputName, selectedInputCitizenship);
+			reserveMessage = $"Reservation saved with code: {reservation.ReservationCode}";
+		}
+		catch (ArgumentException ex)
+		{
+			reserveMessage = ex.Message;
+		}
+	}
 
 	private void SelectOriginAirport(ChangeEventArgs e)
 	{

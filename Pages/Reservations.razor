@@ -1,5 +1,6 @@
 @page "/reservations"
 @using Assignment2.Models;
+@inject ReservationMaking ReservationMaker
 
 <div class="d-flex flex-row justify-content-evenly">
 	<div class="d-flex flex-column align-items-center">
@@ -98,31 +99,9 @@
 		reservations = ReservationManager.Findreservation(newreservationcode, newflightCode, newname);
 	}
 
-	private void SaveReservation()
-		{
-		var chosenFlight = FlightManager.GetFlights().FirstOrDefault(f => f.FlightCode.Equals(flightCode, StringComparison.OrdinalIgnoreCase));
 
-		if (chosenFlight == null)
-		{
-			resMessage = $"Flight with code {flightCode} not found";
-			return;
-		}
+}
 
-		try
-		{
-			FlightManager flightManager = new FlightManager();
-			AirportManager airportManager = new AirportManager();
-
-			ReservationMaking reservationMaker = new ReservationMaking(flightManager, airportManager);
-
-			var reservation = reservationMaker.MakeReservation(chosenFlight, name, citizenship);
-
-			resMessage = $"Reservation saved with code: {reservation.ReservationCode}";
-		}
-		catch (ArgumentException ex)
-		{
-			resMessage = ex.Message;
 		}
 	}
 }
-

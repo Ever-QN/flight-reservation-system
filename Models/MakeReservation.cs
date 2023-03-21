@@ -13,7 +13,9 @@ namespace Assignment2.Models
         public readonly FlightManager flightManager;
         public readonly AirportManager airportManager;
 
-        public ReservationMaking(FlightManager flightManager, AirportManager airportManager)
+		public ReservationMaking() { }
+
+		public ReservationMaking(FlightManager flightManager, AirportManager airportManager)
         {
             this.flightManager = flightManager;
             this.airportManager = airportManager;
