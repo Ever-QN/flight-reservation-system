@@ -42,20 +42,23 @@ namespace Assignment2.Models
                 throw new ArgumentException("The flight is completely booked");
             }
 
-            var reservationCode = ReservationManager.reservation_binary;
+            var reservationCode = ReservationManager.GenerateReservationCode(); // Call the GenerateReservationCode method here
 
             var reservation = new Reservation
             {
-                PassengerName = name,
-                Citizenship = citizenship,
                 ReservationCode = reservationCode,
-                Flight = chosenFlight
+                FlightCode = chosenFlight.FlightCode,
+                Airline = chosenFlight.Airline,
+                CostPerSeat = chosenFlight.CostPerSeat,
+                Name = name,
+                Citizenship = citizenship,
+                Active = "1" // Assuming "1" means the reservation is active
             };
 
             chosenFlight.Seats--;
 
             {
-                var line = $"{reservation.ReservationCode},{reservation.flights.FlightCode},{reservation.PassengerName},{reservation.Citizenship}";
+                var line = $"{reservation.ReservationCode},{reservation.FlightCode},{reservation.Name},{reservation.Citizenship}";
 
                 File.AppendAllText("reservations.txt", line + Environment.NewLine);
             }
