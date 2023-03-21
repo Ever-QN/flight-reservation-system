@@ -12,7 +12,7 @@ namespace Assignment2.Models
          * location of reservation code 
          * (binary or text)
          */
-        public const string reservation_binary = "res/reservation.txt";
+        public const string reservation_binary = "res/reservations.txt";
 
         public static List<Reservation> reservations = new List<Reservation>();
         private static ReservationMaking reservation;
