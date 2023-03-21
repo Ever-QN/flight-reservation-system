@@ -89,4 +89,25 @@
 			//resMessage += FindReservation().ToString()
 		}
 	}
+
+    private void SaveReservation()
+    {
+        var chosenFlight = FlightManager.GetFlights().FirstOrDefault(f => f.FlightCode.Equals(flightCode, StringComparison.OrdinalIgnoreCase));
+        
+        if (chosenFlight == null)
+        {
+            resMessage = $"Flight with code {flightCode} not found";
+            return;
+        }
+        
+        try
+        {
+            var reservation = ReservationMaker.makeReservation(chosenFlight, name, citizenship);
+            resMessage = $"Reservation saved with code: {reservation.ReservationCode}";
+        }
+        catch (ArgumentException ex)
+        {
+            resMessage = ex.Message;
+        }
+    }
 }
