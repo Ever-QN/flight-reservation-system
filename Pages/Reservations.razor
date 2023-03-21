@@ -104,7 +104,7 @@
 
         try
         {
-            var reservation = ReservationMaker.makeReservation(chosenFlight, name, citizenship);
+            var reservation = ReservationMaker.MakeReservation(chosenFlight, name, citizenship);
             resMessage = $"Reservation saved with code: {reservation.ReservationCode}";
         }
         catch (ArgumentException ex)
