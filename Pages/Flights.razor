@@ -121,18 +121,18 @@
 
 		if (chosenFlight == null)
 		{
-			resMessage = $"Flight with code {selectedInputFlight} not found";
+			reserveMessage = $"Flight with code {selectedInputFlight} not found";
 			return;
 		}
 
 		try
 		{
-			var reservation = ReservationMaker.MakeReservation(chosenFlight, name, citizenship);
-			resMessage = $"Reservation saved with code: {reservation.ReservationCode}";
+			var reservation = ReservationMaker.MakeReservation(chosenFlight, selectedInputName, selectedInputCitizenship);
+			reserveMessage = $"Reservation saved with code: {reservation.ReservationCode}";
 		}
 		catch (ArgumentException ex)
 		{
-			resMessage = ex.Message;
+			reserveMessage = ex.Message;
 		}
 	}
 
