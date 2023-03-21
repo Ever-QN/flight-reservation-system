@@ -18,7 +18,7 @@
 				<input type="text" class="form-control" id="name">
 			</div>
 			<div class=" flex-column justify-content-evenly">
-				<button @onclick="FindReservation" type="button" class="btn btn-primary mt-3">Find reservations</button>
+				<button @onclick="@FindReservation" type="button" class="btn btn-primary mt-3">Find reservations</button>
 			</div>
 		</form>
 	</div>
@@ -36,27 +36,27 @@
 	<form class="d-flex flex-column align-items-end"> 
 		<div class="form-group d-flex flex-column align-items-start long">
 			<label>Reservation Code: </label>
-			<input type="text" class="form-control" id="rescode" placeholder="Reservation Code">
+			<input type="text" class="form-control" id="rescode" placeholder="Reservation Code" @bind-value="newreservationcode" />
 		</div>
 		<div class="form-group d-flex flex-column align-items-start long">
 			<label>Flight Code: </label>
-			<input class="form-control" type="text" id="flycode"placeholder="Flight Code" @bind-value="flightCode" />
+			<input class="form-control" type="text" id="flycode"placeholder="Flight Code" @bind-value="newflightCode" />
 		</div>
 		<div class="form-group d-flex flex-column align-items-start long">
 			<label>Airline: </label>
-			<input class="form-control" type="text" id="airline" placeholder="Airline" @bind-value="airline" />
+			<input class="form-control" type="text" id="airline" placeholder="Airline" @bind-value="newairline" />
 		</div>
 		<div class="form-group d-flex flex-column align-items-startab-content long">
 			<label>Cost: </label>
-			<input class="form-control" type="text" id="cost" placeholder="0" @bind-value="cost" />
+			<input class="form-control" type="text" id="cost" placeholder="0" @bind-value="newcost" />
 		</div>
 		<div class="form-group d-flex flex-column align-items-start long">
 			<label>Name: </label>
-			<input class="form-control" type="text" id="name" placeholder="Name" @bind-value="name" />
+			<input class="form-control" type="text" id="name" placeholder="Name" @bind-value="newname" />
 		</div>
 		<div class="form-group d-flex flex-column align-items-start long">
 			<label>Citizenship: </label>
-			<input class="form-control" type="text" id="citizenship" placeholder="Citizenship" @bind-value="citizenship" />
+			<input class="form-control" type="text" id="citizenship" placeholder="Citizenship" @bind-value="newcitizenship" />
 		</div>
 		<div class="form-group d-flex flex-column align-items-start long">
 			<label>Active: </label>
@@ -65,57 +65,64 @@
 
 	</form>
                 <div>
-                       <button @onclick="SaveReservation" type="button" class="btn btn-primary mt-3">Save</button>
+                       <button type="button" class="btn btn-primary mt-3">Save</button>
                 </div>
 
 </div>
 
 
 @code {
-    static string flightCode;
-    static string airline;
-    static double cost;
-    static string name;
-    static string citizenship;
+	static string newflightCode;
+	static string newairline;
+	static double newcost;
+	static string newname;
+	static string newcitizenship;
+	static string newreservationcode;
 
-    string resMessage = " ";
+	string resMessage = " ";
 
-    private void FindReservation()
-    {
+	ReservationManager rm = new ReservationManager();
+	List<Reservation> reservations = ReservationManager.GetReservations();
 
-        resMessage = "";
+	Reservation reservation;
 
-        if (resMessage == "")
-        {
-            //resMessage += FindReservation().ToString()
-        }
-    }
+	private void FindReservation()
+	{
+		newreservationcode = "";
+		newflightCode = "";
+		newairline = "";
+		newcost = 0;
+		newname = "";
+		newcitizenship = "";
 
-		private void SaveReservation()
+		reservations = ReservationManager.Findreservation(newreservationcode, newflightCode, newname);
+	}
+
+	private void SaveReservation()
 		{
-			var chosenFlight = FlightManager.GetFlights().FirstOrDefault(f => f.FlightCode.Equals(flightCode, StringComparison.OrdinalIgnoreCase));
+		var chosenFlight = FlightManager.GetFlights().FirstOrDefault(f => f.FlightCode.Equals(flightCode, StringComparison.OrdinalIgnoreCase));
 
-			if (chosenFlight == null)
-			{
-				resMessage = $"Flight with code {flightCode} not found";
-				return;
-			}
+		if (chosenFlight == null)
+		{
+			resMessage = $"Flight with code {flightCode} not found";
+			return;
+		}
 
-			try
-			{
-				FlightManager flightManager = new FlightManager();
-				AirportManager airportManager = new AirportManager();
+		try
+		{
+			FlightManager flightManager = new FlightManager();
+			AirportManager airportManager = new AirportManager();
 
-				ReservationMaking reservationMaker = new ReservationMaking(flightManager, airportManager);
+			ReservationMaking reservationMaker = new ReservationMaking(flightManager, airportManager);
 
-				var reservation = reservationMaker.MakeReservation(chosenFlight, name, citizenship);
+			var reservation = reservationMaker.MakeReservation(chosenFlight, name, citizenship);
 
-				resMessage = $"Reservation saved with code: {reservation.ReservationCode}";
-			}
-			catch (ArgumentException ex)
-			{
-				resMessage = ex.Message;
-			}
+			resMessage = $"Reservation saved with code: {reservation.ReservationCode}";
+		}
+		catch (ArgumentException ex)
+		{
+			resMessage = ex.Message;
 		}
 	}
 }
+

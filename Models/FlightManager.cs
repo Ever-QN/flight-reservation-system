@@ -18,7 +18,11 @@ namespace Assignment2.Models
 		{
             populateFlights();
 		}
-
+		/*
+		* method to populate the flight information
+		* @param -  no parameters
+		* @return - no return
+		*/
 		private void populateFlights()
         {
             Flight flight;

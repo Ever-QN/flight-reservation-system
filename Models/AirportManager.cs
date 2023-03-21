@@ -18,7 +18,12 @@ namespace Assignment2.Models
             populateAirports();
         }
 
-        private void populateAirports()
+		/*
+        * method to populate the airport information
+        * @param -  no parameters
+        * @return - no return
+        */
+		private void populateAirports()
         {
             Airport airport;
             try

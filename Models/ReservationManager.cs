@@ -17,32 +17,17 @@ namespace Assignment2.Models
         public static List<Reservation> reservations = new List<Reservation>();
         private static ReservationMaking reservation;
 
-        /*
+		/*
          * getReservation return the list of reservations
          * #param - no parameters
          * @return list of reservations
          */
-        public static List<Reservation> GetReservations()
+		public static List<Reservation> GetReservations()
         {
             return reservations;
         }
 
-        /*
-         * Find the reservation by code
-         * #param reservation code
-         * @return the reservation object(s)
-         */
-        public static Reservation findreservationbycode(string reservationCode)
-        {
-            foreach (Reservation reservation in reservations)
-            {
-                if (reservation.Equals(reservationCode))
-                    return reservation;
-            }
-            return null;
-        }
-
-        /*
+		/*
          * Find reservation by code / airline / name
          * #param reservation code
          * #param reservation airline
@@ -50,26 +35,50 @@ namespace Assignment2.Models
          * @return reservation object(s)
          * (To.String)
          */
-        public static Reservation Findreservation(string reservationCode, string airline, string name)
+		public static Reservation Findreservation(string reservationCode, string airline, string name)
         {
+            List<Reservation> found = new List<Reservation>();
+
             foreach (Reservation reservation in reservations)
             {
-                if (reservation.Equals(reservationCode) && reservation.Equals(airline) && reservation.Equals(name))
-                    return reservation;
-                else if (reservation.Equals(reservationCode) && reservation.Equals(airline))
-                    return reservation;
-                else if (reservation.Equals(reservationCode) && reservation.Equals(name))
-                    return reservation;
-                else if (reservation.Equals(airline) && reservation.Equals(name))
-                    return reservation;
-                else if (reservation.Equals(airline))
-                    return reservation;
-                else if (reservation.Equals(name))
-                    return reservation;
-                else
-                    return reservation;
-            }
-            return null;
+                string reservationcode = reservation.ReservationCode;
+                string reservationAirline = reservation.Airline;
+                string reservationName = reservation.Name;
+
+                if (reservationcode.Equals(reservationCode) && reservationAirline.Equals(airline) && reservationName.Equals(name))
+                {
+                    found.Add(reservation);
+                }
+                else if (reservationcode.Equals(reservationCode) && reservationAirline.Equals(airline))
+                {
+                    found.Add(reservation);
+                }
+                else if (reservationcode.Equals(reservationCode) && reservationName.Equals(name))
+                {
+                    found.Add(reservation);
+                }
+                else if (reservationAirline.Equals(airline) && reservationName.Equals(name))
+				{
+					found.Add(reservation);
+				}
+				else if (reservationcode.Equals(reservationCode))
+				{
+					found.Add(reservation);
+				}
+				else if (reservationAirline.Equals(airline))
+				{
+					found.Add(reservation);
+				}
+				else if (reservationName.Equals(name))
+				{
+					found.Add(reservation);
+				}
+				else
+				{
+					found.Add(reservation);
+				}
+			}
+            return found;
         }
 
         // Added GenerateReservationCode method

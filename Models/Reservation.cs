@@ -39,6 +39,18 @@ namespace Assignment2.Models
 			this.citizenship = citizenship;
 			this.active = active;
 		}
+		public override bool Equals(object obj)
+		{
+			return obj is Reservation reservation &&
+				reservationCode == reservation.reservationCode &&
+				flightCode == reservation.flightCode &&
+				airline == reservation.airline &&
+				costPerSeat == reservation.costPerSeat &&
+				name == reservation.name &&
+				citizenship == reservation.citizenship &&
+				active == reservation.active;
+		}
+
 		public override string ToString()
 		{
 			return string.Format("{0}, {1}, {2}, {3}, {4}, {5}, {6}", reservationCode, flightCode, airline, costPerSeat, name, citizenship, active);
