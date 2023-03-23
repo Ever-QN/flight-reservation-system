@@ -1,5 +1,3 @@
-﻿// Quynh's part
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
