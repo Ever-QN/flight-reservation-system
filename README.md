@@ -1,6 +1,6 @@
 # Flight Reservation System
 
-Create a functional, event-driven program that manages the travel agency’s data (contained in the provided data files) and allows a user to do the following:
+A functional, event-driven program that manages a travel agency’s data (contained in the provided data files) and allows the user to do the following:
 
 •	Find flights <br>
   o	A travel agent can find a flight by providing the origin airport, the destination airport and the day of the week the flight departs.
